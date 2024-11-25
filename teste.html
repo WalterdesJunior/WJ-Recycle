@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WJ Recycle</title>
+    <link rel="stylesheet" href="teste.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">WJ Recycle</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="listagemdeele.html" class="nav-link">Equipamentos</a></li>
+                <li class="nav-item"><a href="cadastroequip.html" class="nav-link">Cadastro de Equipamentos</a></li>
+            </ul>
+            <a href="#" class="onde-descartar" id="ondeDescartarBtn">Onde descartar?</a>
+            <div class="hamburguer">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="home-screen">
+            <div class="home-screen-content">
+                <h1>WJ Recycle</h1>
+                <p>Juntos somos mais fortes </p>
+                <a href="#sobre" class="cta-button">Saiba Mais</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="sustentabilidade-section">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="carousel-item active">
+                        <img src="img/foto flor.webp" alt="Imagem 1" class="carousel-image">
+                        <div class="carousel-text">
+                            <h2>Introdução à Sustentabilidade</h2>
+                            <p>A sustentabilidade ambiental no contexto de eletrônicos destaca a importância de criar soluções que minimizem o impacto negativo que o descarte desses dispositivos pode causar no meio ambiente. O avanço tecnológico é inevitável, mas o destino dado aos equipamentos obsoletos é igualmente essencial. É necessário promover práticas que incentivem o reaproveitamento e a reciclagem desses aparelhos, garantindo que eles não acabem em aterros ou poluam o ecossistema.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/OIP.jpeg" alt="Imagem 2" class="carousel-image">
+                        <div class="carousel-text">
+                            <h2>Impacto Ambiental</h2>
+                            <p>O avanço tecnológico é inevitável, mas o destino dado aos equipamentos obsoletos é igualmente essencial. A crescente quantidade de dispositivos eletrônicos descartados incorretamente pode levar a sérios impactos ambientais, como a contaminação do solo e da água por metais pesados. Por isso, é fundamental que empresas e consumidores adotem práticas de reciclagem e descarte sustentável, contribuindo para um futuro mais limpo e saudável para o planeta.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/o-que-e-sustentabilidade-ambiental.jpg" alt="Imagem 3" class="carousel-image">
+                        <div class="carousel-text">
+                            <h2>Reciclagem de Eletrônicos</h2>
+                            <p>Promover o descarte responsável de eletrônicos é vital para minimizar os danos ambientais. A reciclagem correta garante que menos produtos tóxicos atinjam o meio ambiente, evitando a poluição e ajudando na recuperação de materiais valiosos. Além disso, o descarte consciente reduz a demanda por novas matérias-primas, conservando os recursos naturais e promovendo a economia circular.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="impacto-ambiental-section">
+            <h2>Impacto Ambiental de Dispositivos Eletrônicos</h2>
+            <p>O gráfico abaixo mostra a distribuição de materiais tóxicos em dispositivos eletrônicos típicos:</p>
+            <div class="impacto-chart">
+                <canvas id="impactoChart"></canvas>
+            </div>
+            <p>Este diagrama ilustra a proporção de materiais tóxicos comumente encontrados em dispositivos eletrônicos, destacando a importância do descarte adequado e da reciclagem para mitigar o impacto ambiental.</p>
+        </section>
+    </main>
+
+    <section id="descartarSection" class="descartar-section">
+        <div class="descartar-container">
+            <div class="form-container">
+                <h2>Descartar Equipamentos</h2>
+                <label for="equipamento">Escolha o equipamento:</label>
+                <select id="equipamento" name="equipamento">
+                    <option value="celular">Celular</option>
+                    <option value="computador">Computador</option>
+                    <option value="televisao">Televisão</option>
+                    <option value="eletrodomestico">Eletrodoméstico</option>
+                </select>
+                <div class="input-group">
+                    <label for="cep">Digite seu CEP:</label>
+                    <input type="text" id="cep" name="cep" placeholder="_____-___">
+                    <a href="#" class="cep-help">Não sabe seu CEP?</a>
+                </div>
+                <button id="localizarBtn" class="localizar-btn">Localizar Postos de Descarte</button>
+                <a href="teste.html" class="localizar-btn">Voltar para a Tela Inicial</a>
+                <div id="resultados" class="resultados"></div>
+            </div>
+            <div id="map" class="map-container"></div>
+        </div>
+    </section>
+
+    <div id="loadingAnimation" class="loading-animation">
+        <div class="loading-scanner">
+            <div class="container">
+                <div class="data">
+                    <p>WJ Recycle</p>
+                </div>
+                <div class="card">
+                    <div class="circle"></div>
+                    <div class="dot"></div>
+                    <div class="dot2"></div>
+                </div>
+                <div class="loading-text">
+                    <div class="spinner"></div>
+                    Carregando...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="recycling-process">
+        <h2>Formas praticas de reciclar eletrônicos</h2>
+        <div class="process-cards">
+            <div class="process-card">
+                <div class="card-image">
+                    <img src="img/recycling.gif" alt="Coleta">
+                </div>
+                <div class="card-content">
+                    <h3>1. Levar ao Ponto de Descarte Certificado</h3>
+                    <p>Entregar em locais como supermercados e lojas de eletrônicos que têm estações de coleta de lixo eletrônico.</p>
+                </div>
+                <div class="hover-indicator"></div>
+            </div>
+            <div class="process-card">
+                <div class="card-image">
+                    <img src="img/recycling-truck.gif" alt="Doar">
+                </div>
+                <div class="card-content">
+                    <h3>2. Doar para ONGs e Instituições</h3>
+                    <p>ntregar aparelhos antigos diretamente para os programas de reciclagem de marcas como Apple, Dell e Samsung.</p>
+                </div>
+                <div class="hover-indicator"></div>
+            </div>
+            <div class="process-card">
+                <div class="card-image">
+                    <img src="img/piggy-bank.gif" alt="Vender">
+                </div>
+                <div class="card-content">
+                    <h3>3. Vender para Empresas de Recondicionamento</h3>
+                    <p>Vender para empresas que recondicionam dispositivos para revenda.</p>
+                </div>
+                <div class="hover-indicator"></div>
+            </div>
+            <div class="process-card">
+                <div class="card-image">
+                    <img src="img/recycle.gif" alt="Reutilização">
+                </div>
+                <div class="card-content">
+                    <h3>4. Reutilização Criativa</h3>
+                    <p>Usar componentes antigos em projetos de artesanato ou decoração.</p>
+                </div>
+                <div class="hover-indicator"></div>
+            </div>
+        </div>
+    </section>
+    
+   
+    <footer>
+        <p>&copy; 2024 WJ Recycle. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="teste.js"></script>
+</body>
+</html> 

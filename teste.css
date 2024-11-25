@@ -1,0 +1,909 @@
+/* Imports de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+/* Estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f0f4f8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:sans-serif; 
+  color: #6392c0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Navbar */
+header {
+  background-color: #1abc9c;
+}
+
+.navbar {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 34px;
+  background-color: #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.nav-link {
+  color: #fff;
+  font-weight: 500;
+  transition: 0.5s ease;
+}
+
+.nav-link:hover {
+  color: #f1c40f;
+  transform: translateY(-2px);
+}
+
+.hamburguer {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  margin: 5px auto;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.onde-descartar {
+  background-color: #01ad01;
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  margin-left: auto;
+}
+
+.onde-descartar:hover {
+  color: #fff;
+  transform: scale(1.05);
+  
+}
+
+/* Responsividade do menu */
+@media (max-width: 768px) {
+  .hamburguer {
+    display: block;
+  }
+  .hamburguer.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburguer.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburguer.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    border-radius: 0 0 20px 20px;
+    background-color: #1abc9c;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    transition: 0.3s;
+  }
+
+  .nav-item {
+    margin: 16px 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+}
+
+/* Nova seção da tela inicial */
+.home-screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://img.freepik.com/premium-photo/concept-green-technology-green-recycle-sign-circuit-board-technology-innovations_327072-6965.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.home-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.home-screen-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.home-screen h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.home-screen p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.home-screen .cta-button {
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.home-screen .cta-button:hover {
+  background-color: #16a085;
+}
+
+@media (max-width: 768px) {
+  .home-screen h1 {
+    font-size: 2rem;
+  }
+
+  .home-screen p {
+    font-size: 1rem;
+  }
+}
+
+/* Seção de Sustentabilidade */
+.sustentabilidade-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  background-image: url('https://img.freepik.com/fotos-gratis/bateria-no-icone-de-reciclagem-no-cenario-texturizado-de-madeira_23-2147817228.jpg?t=st=1727474319~exp=1727477919~hmac=7f91817bfd3d8fa7355876e15d1d51f6ce8af90334f484110539f44201468a35&w=740');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+/* Carrossel */
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-image {
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-text {
+  padding-left: 30px;
+}
+
+.carousel-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.carousel-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #34495e;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(26, 188, 156, 0.7);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(26, 188, 156, 1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-item {
+  display: none;
+}
+
+.carousel-item.active {
+  display: flex;
+}
+
+/* Seção de Descarte */
+.descartar-section {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(26, 188, 156, 0.9);
+  transition: top 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.descartar-section.show {
+  top: 0;
+  background-image: url(https://t4.ftcdn.net/jpg/05/12/50/03/360_F_512500301_wwLmkXTiRVkzNHLPIfG6jlZ51vyHUK1p.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.descartar-container {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+  flex: 1;
+  padding: 40px;
+}
+
+.form-container h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.form-container label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+.form-container input::placeholder {
+  color: #aaa;
+}
+
+.form-container a.cep-help {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.form-container a.cep-help:hover {
+  text-decoration: underline;
+}
+
+.localizar-btn {
+  background-color: #1abc9c;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.localizar-btn:hover {
+  background-color: #16a085;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.resultados {
+  margin-top: 20px;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.resultado-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.resultado-item:last-child {
+  border-bottom: none;
+}
+
+.map-container {
+  flex: 1;
+  height: 400px;
+}
+
+/* Animação de carregamento */
+.loading-animation {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-scanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loading-scanner .container {
+  width: 280px;
+  height: 380px;
+  background-color: #0a0b0a;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  filter: hue-rotate(10deg);
+  color: #2fbb39;
+  gap: 20px;
+  position: relative;
+}
+
+.loading-scanner .data {
+  margin-top: 25px;
+  border: 2px solid;
+  padding: 15px;
+  border-radius: 5px;
+  background: #000000;
+}
+
+.loading-scanner .data::after {
+  background: #000000;
+  content: "WIND - 54,3";
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  border: 2px solid;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 0.7em;
+}
+
+.loading-scanner .data::before {
+  content: "DEPT - 600";
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  border: 2px solid;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 0.7em;
+  background: #000000;
+}
+
+.loading-scanner .card {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #18d322;
+  overflow: hidden;
+}
+
+.loading-scanner .card::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  background-color: #18d322;
+  animation: rotate 3s linear infinite;
+  z-index: 6;
+  transform-origin: 0 0;
+}
+
+.loading-scanner .card::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  transform: rotate(-4deg);
+  background-color: #18d322;
+  animation: rotate 3s linear infinite;
+  box-shadow: 0 0 10px 10px #2fbb39, 0 0 70px 10px #2fbb39;
+  z-index: 6;
+  transform-origin: 0 0;
+}
+
+.loading-scanner .circle {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #18d322;
+  border-radius: 50%;
+}
+
+.loading-scanner .circle::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #18d322;
+  border-radius: 50%;
+}
+
+.loading-scanner .circle::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #18d322;
+  border-radius: 50%;
+}
+
+.loading-scanner .dot {
+  width: 4px;
+  height: 4px;
+  top: 30%;
+  background-color: #18d322;
+  border-radius: 50%;
+  position: absolute;
+  animation: doted 1.5s ease infinite;
+}
+
+.loading-scanner .dot2 {
+  width: 4px;
+  height: 4px;
+  top: 80%;
+  right: 30%;
+  background-color: #18d322;
+  border-radius: 50%;
+  position: absolute;
+  animation: doted 1.5s 1.2s ease infinite;
+}
+
+.loading-scanner .loading-text {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  color: #2fbb39;
+  font-size: 14px;
+}
+
+.loading-scanner .spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #2fbb39;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes doted {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px 5px rgba(24, 211, 33, 0.3),
+      0 0 10px 10px rgba(24, 211, 33, 0.3);
+  }
+  60% {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px 5px rgba(24, 211, 33, 0.3),
+      0 0 10px 10px rgba(24, 211, 33, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(24, 211, 33, 0.7), 0 0 0 0 rgba(24, 211, 33, 0.5),
+      0 0 0 0 rgba(24, 211, 33, 0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Seção de Impacto Ambiental */
+.impacto-ambiental-section {
+  padding: 70px 20px;
+  background-image: url('https://img.freepik.com/fotos-gratis/bateria-no-icone-de-reciclagem-no-cenario-texturizado-de-madeira_23-2147817228.jpg?t=st=1727474319~exp=1727477919~hmac=7f91817bfd3d8fa7355876e15d1d51f6ce8af90334f484110539f44201468a35&w=740');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+.impacto-ambiental-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.impacto-ambiental-section p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.impacto-chart {
+  max-width: 700px;
+  height: 450px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+}
+
+
+
+.slide-in-left {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+.recycling-process {
+  padding: 70px 20px;
+  background-image: url('https://img.freepik.com/premium-photo/green-recycling-concept-illustrated_864588-18986.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+.recycling-process h2 {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  color: #e1e7ee;
+ 
+}
+
+.process-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.process-card {
+  width: 250px;
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.process-card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.hover-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 1.5s infinite;
+}
+
+.hover-indicator::after {
+  content: '↗';
+  font-size: 20px;
+  color: #333;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.process-card:hover .hover-indicator {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .process-card {
+      width: 100%;
+      max-width: 300px;
+  }
+}
+
+/* Footer (existing styles) */
+footer {
+  background-color: #070707;
+  color: #fff;
+  text-align: center;
+  padding: 50px 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+/* Responsivo para tablets */
+@media (max-width: 768px) {
+  .section-container {
+      width: 80%;
+      padding: 15px;
+  }
+
+  .back-button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
+
+/* Responsivo para celulares */
+@media (max-width: 480px) {
+  .section-container {
+      width: 90%;
+      padding: 10px;
+  }
+
+  .back-button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
+.user-menu {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.user-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+}
+
+.user-menu-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.flag-br {
+  position: relative;
+  display: block;
+  width: 2rem;
+  height: 1.5rem;
+  background-color: #009c3b;
+}
+
+.flag-br::before {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  background-color: #ffdf00;
+  transform: rotate(45deg);
+}
+
+.flag-br::after {
+  content: '';
+  position: absolute;
+  inset: 30%;
+  background-color: #002776;
+  border-radius: 50%;
+}
+
+.user-menu-content {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 10rem;
+  background: white;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  overflow: hidden;
+}
+
+.user-menu.active .user-menu-content {
+  display: block;
+}
+
+.menu-item {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}

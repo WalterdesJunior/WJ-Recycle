@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url(https://img.freepik.com/premium-photo/concept-green-technology-green-recycle-sign-circuit-board-technology-innovations_327072-6965.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.header-container {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.voltar-btn {
+    background-color: #00a86b;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.equipamentos-section {
+    padding: 2rem;
+}
+
+.equipamentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.equipamento-card {
+    background-color: #e6dddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.equipamento-card:hover {
+    transform: translateY(-5px);
+}
+
+.equipamento-imagem {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.equipamento-info {
+    padding: 1rem;
+}
+
+.equipamento-nome {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.equipamento-descricao {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.equipamento-status {
+    font-weight: bold;
+}
+
+.status-completo {
+    color: #4CAF50;
+}
+
+.status-incompleto {
+    color: #FFC107;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

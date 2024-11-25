@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Equipamentos - WJ Recycle</title>
+    <link rel="stylesheet" href="cadastroequip.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Cadastro de Equipamentos</h1>
+            <a href="teste.html" class="voltar-btn">Voltar para a Tela Inicial</a>
+        </div>
+    </header>
+
+        <section class="container">
+            <form id="equipmentForm" class="registration-form">
+                <div class="form-group">
+                    <label for="equipmentType">Tipo de Equipamento</label>
+                    <select id="equipmentType" name="equipmentType" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="smartphone">Smartphone</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="tablet">Tablet</option>
+                        <option value="desktop">Desktop</option>
+                        <option value="printer">Impressora</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="brand">Marca</label>
+                    <input type="text" id="brand" name="brand" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="model">Modelo</label>
+                    <input type="text" id="model" name="model" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="serialNumber">Número de Série</label>
+                    <input type="text" id="serialNumber" name="serialNumber">
+                </div>
+
+                <div class="form-group">
+                    <label for="condition">Estado do Equipamento</label>
+                    <select id="condition" name="condition" required>
+                        <option value="">Selecione o estado</option>
+                        <option value="working">Funcionando</option>
+                        <option value="notWorking">Não Funcionando</option>
+                        <option value="damaged">Danificado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descrição (opcional)</label>
+                    <textarea id="description" name="description" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Cadastrar Equipamento</button>
+            </form>
+
+     
+        </section>
+    </main>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Cadastro Realizado com Sucesso!</h2>
+            <p>Seu equipamento foi registrado em nosso sistema.</p>
+            <button id="closeModal" class="btn-submit">Fechar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 WJ Recycle. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="cadastroequip.JS"></script>
+</body>
+</html>
